@@ -8,12 +8,12 @@ name:{
 email:{
     type: String,
     reqired: true,
-    uniqure: true
+    unique: true
 },
 mobile:{
     type: String,
     reqired: true,
-    uniqure: true
+    unique: true
 },
 password:{
     type: String,
