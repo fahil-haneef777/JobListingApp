@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Login from './Pages/Login/Login'
 
 import './App.css'
 
@@ -7,7 +8,7 @@ function App() {
 
   return (
     <>
-    hey there lets build job listing app!
+    <Login/>
     </>
   )
 }

@@ -3,6 +3,7 @@ const router = express.Router();
 const Jobs = require("../models/jobs");
 const verifyjwt = require("../middleware/middleware");
 
+//job adding api
 router.post("/job-post", verifyjwt, async (req, res) => {
   try {
     const {
@@ -55,6 +56,9 @@ router.post("/job-post", verifyjwt, async (req, res) => {
   }
 });
 
+
+//job update api
+
 router.patch("/job-post/:id", verifyjwt, async (req, res) => {
   try {
     const {
@@ -92,30 +96,33 @@ router.patch("/job-post/:id", verifyjwt, async (req, res) => {
     console.log(error);
   }
 });
-
+// all job api
 router.get("/Alljob", async (req, res) => {
   const Job = await Jobs.find();
   res.send({ job: Job });
 });
 
+//job search and filter api
+
 router.get("/job/search", async (req, res) => {
   const title = req.query.title;
-  const skill = req.query.skill;
-  console.log(title,skill)
-  // if(skills){
-  //   filter.skills={$in:skills.split(',')};
-  // }
-  // if(jobType){
-  //   filter.jobType={$regex:jobType,$options:'i'};
-  // }
-  // console.log(filter)
+  const skills = req.query.skill;
+  console.log(title, skills);
+  const filter = {};
+  if (skills) {
+    filter.skills = { $regex: skills, $options: "i" };
+  }
+  if (title) {
+    filter.position = { $regex: title, $options: "i" };
+  }
 
   try {
     const job = await Jobs.find(
-      {
-        position: { $regex: title, $options: "i" },
-        skills: { $regex: skill, $options: "i" },
-      },
+      // {
+      //   position: { $regex: title, $options: "i" },
+      //   skills: { $regex: skills, $options: "i" },
+      // },
+      filter,
       {
         _id: 0,
         companyName: 1,
@@ -126,7 +133,7 @@ router.get("/job/search", async (req, res) => {
         remote: 1,
         location: 1,
         about: 1,
-        skills:1
+        skills: 1,
       }
     );
     res.send(job);
@@ -135,4 +142,11 @@ router.get("/job/search", async (req, res) => {
   }
 });
 
+//detail description of jobpost api
+
+router.get("/jobpost/:id", async(req, res) => {
+  const id = req.params.id;
+  const Job= await Jobs.findById({_id:id},{_id:0})
+  res.send({message:Job})
+})
 module.exports = router;

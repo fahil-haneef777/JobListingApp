@@ -38,7 +38,7 @@ about:{
     required: true
 },
 skills:{
-    type: String,
+    type: [String],
     required: true
 },
 recruiterName:{
