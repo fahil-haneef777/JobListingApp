@@ -1,3 +1,9 @@
+*{
+  margin: 0;
+  overflow-y: hidden;
+}
+
+
 .main {
   display: flex;
   justify-content: space-between;
@@ -5,6 +11,7 @@
 
 .left {
   flex: 1.5;
+
 }
 
 .right {
@@ -55,16 +62,20 @@
 .form {
   display: flex;
   flex-direction: column;
-  position: relative;
+  position: absolute;
   top: 34vh;
   gap: 1.8vh;
-  left: 5.85vw;
+  left:5.85vw ;
+  
+  
 }
 .form > input {
   height: 7vh;
   width: 25vw;
   border: 1px solid #c2c2c2;
   border-radius: 5px;
+  text-indent: 1vw;
+  
 }
 .form > input::placeholder {
   position: relative;
@@ -105,7 +116,11 @@
   /* text-decoration: none; */
   color: black;
   font-weight: 600;
+  font-size: larger;
   cursor: pointer;
+  position: relative;
+  bottom: 4px;
+
 }
 .bottom>a:focus{
   color:#ed5353;

@@ -17,7 +17,7 @@ router.post("/job-post", verifyjwt, async (req, res) => {
       description,
       about,
       skills,
-      recruiterName,
+      information,
     } = req.body;
 
     if (
@@ -31,9 +31,9 @@ router.post("/job-post", verifyjwt, async (req, res) => {
       !description ||
       !about ||
       !skills ||
-      !recruiterName
+      !information
     ) {
-      return res.send({ message: "all fields are required" });
+      return res.status(400).send({ message: "all fields are required" });
     }
 
     const jobPost = new Jobs({
@@ -47,7 +47,7 @@ router.post("/job-post", verifyjwt, async (req, res) => {
       description,
       about,
       skills,
-      recruiterName,
+      information,
     });
     await jobPost.save();
     res.send({ message: "job details added successfully" });

@@ -1,0 +1,158 @@
+*{
+  margin: 0;
+  overflow-y: hidden;
+}
+
+.main {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  overflow: visible;
+}
+
+.right {
+  flex: 1;
+}
+.right > img {
+  width: 100%;
+  height: 100vh;
+}
+.right > h1 {
+  color: white;
+  position: absolute;
+  margin-left: 3vw;
+  margin-top: 5vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 400;
+}
+
+.left {
+  flex: 1.8;
+  position: relative;
+}
+.left > h1 {
+  position: absolute;
+  left: 3vw;
+  top: 3vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 600;
+}
+.fieldinput {
+  display: flex;
+}
+.fieldinput > div > label {
+  font-size: larger;
+  font-weight: 550;
+  font-size: 3vh;
+}
+.fieldinput {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  gap: 2vh;
+  top: 10vh;
+  left: 2vw;
+  scale: 0.92;
+}
+input {
+  border-color: #c2c2c2;
+  border-radius: 4px;
+  width: 30vw;
+  height: 4vh;
+}
+input::placeholder {
+  padding-left: 1vw;
+}
+select {
+  border: 2px solid;
+  border-color: #c2c2c2;
+  border-radius: 4px;
+  width: 10vw;
+  height: 4vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 600;
+  font-size: medium;
+}
+.company > input {
+  margin-left: 2vw;
+}
+.url > input {
+  margin-left: 3.9vw;
+}
+.position > input {
+  margin-left: 4.2vw;
+}
+.salary > input {
+  margin-left: 2.4vw;
+}
+.jobtype > select {
+  margin-left: 6.2vw;
+}
+.remote > select {
+  margin-left: 3vw;
+}
+.location > input {
+  margin-left: 6.4vw;
+}
+.description > textarea {
+  margin-left: 2.1vw;
+  border: 2px solid #c2c2c2;
+}
+.description > label {
+  position: relative;
+  bottom: 3.5vw;
+}
+.about > textarea {
+  margin-left: 1.6vw;
+  border: 2px solid #c2c2c2;
+}
+.about > label {
+  position: relative;
+  bottom: 3.5vw;
+}
+
+.skill > input {
+  margin-left: 2.8vw;
+}
+.info > input {
+  margin-left: 4.3vw;
+}
+.button {
+  display: flex;
+  gap: 2vh;
+  position: absolute;
+  bottom: 2vh;
+  right: 8vw;
+}
+.button > button:nth-of-type(2) {
+  background-color: #ed5353;
+  border: none;
+  border-radius: 5px;
+  height: 5vh;
+  width: 7vw;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3;
+}
+.button > button:nth-of-type(1) {
+  background-color: #c2c2c2;
+  border: none;
+  border-radius: 5px;
+  height: 5vh;
+  width: 7vw;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+}
+.button > button:nth-of-type(2):active {
+  scale: 0.95;
+}
+.button > button:nth-of-type(1):active {
+  scale: 0.95;
+}

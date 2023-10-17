@@ -5,11 +5,13 @@ const mongoose = require('mongoose');
 const authRoutes=require('./Routes/auth');
 const jobRoutes=require('./Routes/job')
 const User=require('./models/user')
+const cors=require('cors')
 
 
 const app = express();
 
 
+app.use(cors())
 app.use(bodyparser.urlencoded({extended: false}));
 app.use(bodyparser.json());
 

@@ -41,7 +41,7 @@ skills:{
     type: [String],
     required: true
 },
-recruiterName:{
+information:{
     type: String,
     required: true
 },
