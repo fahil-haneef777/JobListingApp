@@ -1,5 +1,249 @@
 .main {
-  background-color:#FFEEEE;
+  background-color: #ffeeee;
   height: 100vh;
   width: 100vw;
+  overflow: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.main::-webkit-scrollbar {
+  width: 0.3rem;
+  background-color: rgb(2, 211, 64) (119, 62, 62);
+}
+.topnav {
+  position: sticky;
+}
+.topnav > img {
+  width: 100%;
+  height: 10vh;
+}
+
+.topnav > h2 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  position: absolute;
+  top: 1.5vh;
+  left: 7vh;
+  color: white;
+}
+
+.loggedin {
+  display: flex;
+  gap: 1.5vw;
+  position: absolute;
+  right: 10vh;
+  top: 1.6vw;
+  color: white;
+  font-weight: 500;
+}
+.loggedin > button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: medium;
+  color: white;
+}
+.loggedin > button:hover {
+  color: black;
+}
+.loggedin > button:active {
+  scale: 0.95;
+}
+.logbutton {
+  border: 1px solid white;
+  background-color: transparent;
+  border-radius: 3px;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  transition: 0.3;
+}
+.logbutton:active {
+  scale: 0.95;
+}
+.regbutton {
+  color: #ed5353;
+  background-color: white;
+  border: none;
+  border-radius: 4px;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  cursor: pointer;
+  transition: 0.3;
+  font-weight: 600;
+}
+.regbutton:active {
+  scale: 0.95;
+}
+.loggedout {
+  display: flex;
+  gap: 1.5vw;
+  position: absolute;
+  right: 10vh;
+  top: 1.6vw;
+  color: white;
+  font-weight: 500;
+}
+.heading {
+  background-color: white;
+  height: 13vh;
+  width: 73.5vw;
+  position: relative;
+  z-index: 2;
+  left: 13vw;
+  bottom: 3vh;
+  padding: 0;
+  margin: 0;
+}
+.innerheading {
+  margin-left: 1.5vw;
+  margin-top: 1.5vh;
+  font-weight: 500;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  text-align: center;
+}
+
+.body {
+  display: flex;
+  gap: 1vh;
+  flex-direction: column;
+  background-color: white;
+  margin: 3vw 13vw 3vw 13vw;
+  padding: 4vh;
+}
+.edit {
+  background-color: #ed5353;
+  color: white;
+  padding: 2vh 2.5vw 2vh 2.5vw;
+  font-size: large;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  letter-spacing: 1px;
+  position: relative;
+  left: 57vw;
+  margin: 0;
+  cursor: pointer;
+  transition: 0.3;
+}
+.edit:active{
+    scale: 0.95;
+}
+
+.three {
+  display: flex;
+  gap: 10vw;
+  height: 6vw;
+}
+.body > div {
+  margin: 1vh;
+}
+.stipend {
+  display: flex;
+  gap: 2vh;
+}
+.stipend > p {
+  padding: 2vh;
+  color: #999999;
+}
+.stipend > img {
+  height: 24px;
+  width: 28px;
+  position: relative;
+  top: 1.5vh;
+}
+.duration > img {
+  height: 24px;
+  width: 24px;
+  position: relative;
+  top: 1.5vh;
+}
+.duration {
+  display: flex;
+  gap: 2vh;
+}
+.duration > p {
+  position: relative;
+  width: max-content;
+  padding: 2vh;
+  color: #999999;
+}
+.salary {
+  position: relative;
+  top: 8vh;
+  right: 9vw;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 600;
+  color: #595959;
+  padding-left: 2vh;
+}
+.durationtime {
+  position: relative;
+  top: 8vh;
+  right: 9.5vw;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 600;
+  color: #595959;
+  padding-left: 2vh;
+}
+.about,
+.information {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+.about > h3,
+.information > h3 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.about > p,
+.information > p {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  letter-spacing: 0.7px;
+  color: #595959;
+}
+.aboutjob {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+.aboutjob > h3 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.aboutjob > p {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  letter-spacing: 0.7px;
+  color: #595959;
+}
+
+.skillsdiv {
+  display: flex;
+  gap: 2vw;
+  height: 4vw;
+}
+.jobskill {
+  padding: 1vh;
+  background-color: #ffeeee;
+  width: 4vw;
+  text-align: center;
+  height: 3vh;
+  border-radius: 20px;
+  position: relative;
+  top: 2vh;
+  color: #595959;
+  font-size: larger;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }

@@ -226,7 +226,7 @@ const handleCancel=()=>{
                 placeholder="Enter the must have skill"
                 value={info.skills}
                 onInput={(e) => {
-                  setinfo({ ...info, skills: e.target.value });
+                  setinfo({ ...info, skills: e.target.value.split(",").map((skill)=>skill.trim()) });
                 }}
               />
             </div>
