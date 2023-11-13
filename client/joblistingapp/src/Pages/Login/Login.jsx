@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import style from "./Login.module.css";
 import backgroundimage from "../../assets/loginbackground.jpg";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 function Login() {
   const [user, setuser] = useState({
     email: "",
     password: "",
   });
+  const navigate = useNavigate();
   const [loginitem, setloginitem] = useState({ token: "", name: "" });
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,16 +18,15 @@ function Login() {
         console.log(res.data);
         if (res.data.token) {
           console.log("logedin successfully");
+          navigate(-1);
         }
-        localStorage.setItem('name',res.data.name)
-        localStorage.setItem('token',res.data.token)
-
+        localStorage.setItem("name", res.data.name);
+        localStorage.setItem("token", res.data.token);
       })
       .catch((err) => {
         console.error(err);
       });
   };
-
 
   return (
     <>

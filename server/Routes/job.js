@@ -56,10 +56,9 @@ router.post("/job-post", verifyjwt, async (req, res) => {
   }
 });
 
-
 //job update api
 
-router.patch("/job-post/:id", verifyjwt, async (req, res) => {
+router.put("/job-post/:id", verifyjwt, async (req, res) => {
   try {
     const {
       companyName,
@@ -72,7 +71,7 @@ router.patch("/job-post/:id", verifyjwt, async (req, res) => {
       description,
       about,
       skills,
-      recruiterName,
+      information,
     } = req.body;
 
     const { id } = req.params;
@@ -88,7 +87,7 @@ router.patch("/job-post/:id", verifyjwt, async (req, res) => {
       description,
       about,
       skills,
-      recruiterName,
+      information,
     });
 
     res.status(200).send({ message: "updated successfully" });
@@ -106,36 +105,20 @@ router.get("/Alljob", async (req, res) => {
 
 router.get("/job/search", async (req, res) => {
   const title = req.query.title;
-  const skills = req.query.skill;
+  const skills = req.query.skills;
   console.log(title, skills);
   const filter = {};
   if (skills) {
     filter.skills = { $regex: skills, $options: "i" };
+    // filter.skills = { $regex: skills, $options: "i" };
+    // filter.skills = { $in: skills };
   }
   if (title) {
     filter.position = { $regex: title, $options: "i" };
   }
 
   try {
-    const job = await Jobs.find(
-      // {
-      //   position: { $regex: title, $options: "i" },
-      //   skills: { $regex: skills, $options: "i" },
-      // },
-      filter,
-      {
-        _id: 0,
-        companyName: 1,
-        logoUrl: 1,
-        position: 1,
-        salary: 1,
-        jobType: 1,
-        remote: 1,
-        location: 1,
-        about: 1,
-        skills: 1,
-      }
-    );
+    const job = await Jobs.find(filter);
     res.send(job);
   } catch (error) {
     console.log(error);
@@ -144,9 +127,9 @@ router.get("/job/search", async (req, res) => {
 
 //detail description of jobpost api
 
-router.get("/jobpost/:id", async(req, res) => {
+router.get("/jobpost/:id", async (req, res) => {
   const id = req.params.id;
-  const Job= await Jobs.findById({_id:id},{_id:0})
-  res.send({message:Job})
-})
+  const Job = await Jobs.findById({ _id: id }, { _id: 0 });
+  res.send({ message: Job });
+});
 module.exports = router;

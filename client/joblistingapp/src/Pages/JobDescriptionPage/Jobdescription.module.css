@@ -96,13 +96,13 @@
   position: relative;
   z-index: 2;
   left: 13vw;
-  bottom: 3vh;
+  bottom: 2vh;
   padding: 0;
   margin: 0;
 }
 .innerheading {
   margin-left: 1.5vw;
-  margin-top: 1.5vh;
+  margin-top: 3.5vh;
   font-weight: 500;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -120,8 +120,8 @@
 .edit {
   background-color: #ed5353;
   color: white;
-  padding: 2vh 2.5vw 2vh 2.5vw;
-  font-size: large;
+  padding: 1vh 1.5vw 1vh 1.5vw;
+  font-size: medium;
   font-weight: 600;
   border: none;
   border-radius: 10px;
@@ -177,7 +177,7 @@
 .salary {
   position: relative;
   top: 8vh;
-  right: 9vw;
+  right: 10.5vw;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 600;
@@ -187,7 +187,7 @@
 .durationtime {
   position: relative;
   top: 8vh;
-  right: 9.5vw;
+  right: 10.5vw;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 600;
@@ -232,16 +232,17 @@
   height: 4vw;
 }
 .jobskill {
-  padding: 1vh;
+  padding: 1.5vh;
+  padding-bottom: 2vh;
   background-color: #ffeeee;
-  width: 4vw;
+  width: 4.5vw;
   text-align: center;
   height: 3vh;
   border-radius: 20px;
   position: relative;
   top: 2vh;
   color: #595959;
-  font-size: larger;
+  font-size: medium;
   font-weight: 500;
   text-transform: uppercase;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,

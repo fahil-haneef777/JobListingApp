@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import style from "./Jobdescription.module.css";
 import topnav from "../../assets/topnav.jpg";
 import { useNavigate } from "react-router-dom";
 import stipend from "../../assets/stipend.png";
 import duration from "../../assets/duration.png";
+import JobContext from "../../context/jobcontext";
 import axios from "axios";
 function Jobdescription() {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ function Jobdescription() {
   const [username, setusername] = useState(localStorage.getItem("name"));
   const [jobinfo, setjobinfo] = useState({});
   const [skill, setskill] = useState(jobinfo.skills);
-
+  const { jobid, setjobid } = useContext(JobContext);
   //   const newskill=skill.split(',').map((skill)=>skill.trim())
 
   const handlelogin = () => {
@@ -25,22 +26,15 @@ function Jobdescription() {
     window.location.reload();
   };
 
-  //   useEffect(() => {
-  //     axios
-  //       .get("http://localhost:3000/jobpost/652eee6c71875fedca2aa4c9")
-  //       .then((res) => {
-  //         console.log(res.data.message);
-  //         setjobinfo(res.data.message);
-  //         console.log(jobinfo.skills);
-  //       })
-  //       .catch((err) => console.error(err));
-  //   }, []);
+  const handleEdit = () => {
+    navigate("/jobedit");
+  };
 
   useEffect(() => {
     const fetchJobinfo = async () => {
       try {
         const responce = await axios.get(
-          "http://localhost:3000/jobpost/653023f59cfd6ecf3f98ed5f"
+          `http://localhost:3000/jobpost/${jobid}`
         );
         setjobinfo(responce.data.message);
         console.log(responce.data.message.skills);
@@ -109,7 +103,13 @@ function Jobdescription() {
             >
               {jobinfo.location}
             </p>
-            {loggedin ? <button className={style.edit}>Edit Job</button> : ""}
+            {loggedin ? (
+              <button className={style.edit} onClick={() => handleEdit()}>
+                Edit Job
+              </button>
+            ) : (
+              ""
+            )}
           </div>
 
           <div className={style.three}>

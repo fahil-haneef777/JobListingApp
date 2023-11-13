@@ -1,13 +1,15 @@
-import React, { useState } from "react";
-import style from "./JobAdd.module.css";
+import React, { useEffect, useState, useContext } from "react";
+import style from "./JobEdit.module.css";
 import Jobimg from "../../assets/jobpage.jpg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-function JobAdd() {
+import JobContext from "../../context/jobcontext";
 
-const navigate=useNavigate()
+function Jobedit() {
+  const { jobid } = useContext(JobContext);
+  const navigate = useNavigate();
 
   const [info, setinfo] = useState({
     companyName: "",
@@ -25,7 +27,7 @@ const navigate=useNavigate()
 
   const handleSubmit = () => {
     axios
-      .post("http://localhost:3000/job-post", info, {
+      .put(`http://localhost:3000/job-post/${jobid}`, info, {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token"),
         },
@@ -33,34 +35,32 @@ const navigate=useNavigate()
       .then((res) => {
         console.log(res.data);
         console.log(info);
-        toast.success("Job added successfully!", {
+        toast.success("Job edited successfully!", {
           position: "top-right",
           autoClose: 2000, // Auto-close the message after 2 seconds
         });
-
       })
       .catch((err) => {
         console.error(err);
-        
       });
   };
-  
-const handleCancel=()=>{
-    toast.error('Job Post Canceled!',{
-        position:'top-center',
-        autoClose:1000,
-    })
-    setTimeout(()=>{
-        navigate("/")
-    },2000)
-}
+
+  const handleCancel = () => {
+    toast.error("Job Edit Canceled!", {
+      position: "top-center",
+      autoClose: 1000,
+    });
+    setTimeout(() => {
+      navigate("/login");
+    }, 2000);
+  };
 
   return (
     <>
       <div className={style.main}>
         {/* left */}
         <div className={style.left}>
-          <h1>Add job description</h1>
+          <h1>Edit job description</h1>
           <div className={style.fieldinput}>
             <div className={style.company}>
               {" "}
@@ -226,7 +226,12 @@ const handleCancel=()=>{
                 placeholder="Enter the must have skill"
                 value={info.skills}
                 onInput={(e) => {
-                  setinfo({ ...info, skills: e.target.value.split(",").map((skill)=>skill.trim()) });
+                  setinfo({
+                    ...info,
+                    skills: e.target.value
+                      .split(",")
+                      .map((skill) => skill.trim()),
+                  });
                 }}
               />
             </div>
@@ -249,7 +254,7 @@ const handleCancel=()=>{
           </div>
           <div className={style.button}>
             <button onClick={handleCancel}> Cancel</button>
-            <button onClick={handleSubmit}>+Add Job</button>
+            <button onClick={handleSubmit}>Edit Job</button>
             <ToastContainer />
           </div>
         </div>
@@ -264,4 +269,4 @@ const handleCancel=()=>{
   );
 }
 
-export default JobAdd;
+export default Jobedit;

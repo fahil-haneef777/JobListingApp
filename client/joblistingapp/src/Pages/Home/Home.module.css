@@ -1,0 +1,382 @@
+.main {
+  background-color: #ffffff;
+  height: 100vh;
+  width: 100vw;
+  overflow: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.main::-webkit-scrollbar {
+  width: 0.3rem;
+  background-color: rgb(2, 211, 64) (119, 62, 62);
+}
+.topnav {
+  position: sticky;
+}
+.topnav > img {
+  width: 100%;
+  height: 10vh;
+}
+
+.topnav > h2 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  position: absolute;
+  top: 1.5vh;
+  left: 7vh;
+  color: white;
+}
+
+.loggedin {
+  display: flex;
+  gap: 1.5vw;
+  position: absolute;
+  right: 10vh;
+  top: 1.6vw;
+  color: white;
+  font-weight: 500;
+}
+.loggedin > button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: medium;
+  color: white;
+}
+.loggedin > button:hover {
+  color: black;
+}
+.loggedin > button:active {
+  scale: 0.95;
+}
+.logbutton {
+  border: 1px solid white;
+  background-color: transparent;
+  border-radius: 3px;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  transition: 0.3;
+}
+.logbutton:active {
+  scale: 0.95;
+}
+.regbutton {
+  color: #ed5353;
+  background-color: white;
+  border: none;
+  border-radius: 4px;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  cursor: pointer;
+  transition: 0.3;
+  font-weight: 600;
+}
+.regbutton:active {
+  scale: 0.95;
+}
+.loggedout {
+  display: flex;
+  gap: 1.5vw;
+  position: absolute;
+  right: 10vh;
+  top: 1.6vw;
+  color: white;
+  font-weight: 500;
+}
+.jobfilter {
+  width: 68vw;
+  height: 32vh;
+  position: relative;
+  left: 15vw;
+  top: 3vh;
+  box-shadow: 4px 4px 8px #ffeeee, -4px -4px 8px #ffeeee, 4px -4px 8px #ffeeee,
+    -4px 4px 8px #ffeeee;
+}
+.searchcontainer {
+  width: 700px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  position: relative;
+  left: 4vw;
+  top: 2vh;
+}
+
+.searchinput {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 5px 30px 5px 10px;
+
+  background: transparent;
+}
+.searchinput::placeholder {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  letter-spacing: 2px;
+  font-size: larger;
+}
+
+.searchicon {
+  width: 20px; /* Adjust the width and height as needed */
+  height: 20px;
+  margin-right: 10px;
+}
+.skilldropdown {
+  outline: none;
+  border: 1px solid gray;
+  text-align: center;
+  width: 8vw;
+  height: 5vh;
+  color: #9c9c9c;
+}
+
+.skillfilter {
+  position: absolute;
+  left: 3vw;
+  top: 6vw;
+}
+.skillsbox {
+  position: relative;
+  left: 25vh;
+  top: 5vh;
+  width: 30vw;
+  height: 15vh;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2vh;
+}
+
+.skillsrow {
+  background-color: #ffeeee;
+  display: flex;
+  justify-content: space-between;
+  gap: 2vw;
+  height: 5vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.skillsrow > h3 {
+  padding-left: 2vh;
+  font-weight: 400;
+  padding-top: 0.3vh;
+}
+.closebox {
+  background-color: #ed5353;
+  /* height: 5vh;
+  width: 2vw;
+  position: relative;
+  left: 1vh; */
+}
+.close {
+  position: relative;
+  top: 0.5vh;
+  transition: 0.1s;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.close:active {
+  scale: 0.9;
+}
+.buttonfilter {
+  position: absolute;
+  right: 19vw;
+  top: 13vw;
+}
+.clear {
+  border: none;
+  background-color: transparent;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: red;
+  font-size: medium;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.1s;
+}
+.clear:active {
+  scale: 0.9;
+}
+
+.addjob {
+  background-color: #ed5353;
+  border: none;
+  padding: 2vh 4vh;
+  color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 500;
+  position: absolute;
+  right: 5vh;
+  bottom: 5vh;
+  border-radius: 8px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.addjob:active {
+  scale: 0.9;
+}
+
+.joblisting {
+  box-shadow: 4px 4px 8px #ffeeee, -4px -4px 8px #ffeeee, 4px -4px 8px #ffeeee,
+    -4px 4px 8px #ffeeee;
+  height: 20vh;
+  width: 68vw;
+  position: relative;
+  left: 15vw;
+  top: 7vh;
+  display: flex;
+  justify-content: space-between;
+}
+.joblisting:hover{
+  background-color: rgb(255, 210, 210);
+  cursor: pointer;
+
+}
+
+.jobimg {
+  height: 55px;
+  width: 55px;
+  border-radius: 8px;
+  position: relative;
+  left: 2vw;
+  top: 3vh;
+  overflow: hidden;
+  background-color: #ed5353;
+}
+.jobimg > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.additionalinfo {
+  height: 20vh;
+  width: 25vw;
+  position: absolute;
+  left: 7vw;
+  bottom: 0vh;
+  margin: 0;
+}
+.additionalinfo > h3 {
+  position: relative;
+  top: 2vh;
+  width: 20vw;
+  left: 1vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 700;
+}
+.noofpeople {
+  display: flex;
+  position: relative;
+  top: 2vh;
+  gap: 2vh;
+  height: 6vh;
+  padding-top: 2vh;
+  color: #9c9c9c;
+}
+.noofpeople > p:nth-of-type(2) {
+  padding-left: 2vh;
+}
+.noofpeople > img {
+  height: 2.5vh;
+}
+.place {
+  position: relative;
+  left: 2vh;
+  display: flex;
+  gap: 2vh;
+  padding-top: 2vh;
+}
+.place > img {
+  position: relative;
+  bottom: 2.5vh;
+}
+.place > p {
+  position: relative;
+  bottom: 1.8vh;
+}
+.additionalbottom {
+  display: flex;
+  width: 15vw;
+  justify-content: space-between;
+  padding: 1vh;
+  position: relative;
+  top: 2vh;
+  color: red;
+}
+.joblistingright {
+  position: relative;
+  right: 2vw;
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  width: 22vw;
+}
+.joblistingskillsrequired {
+  display: flex;
+  flex-direction: row;
+  gap: 2vh;
+  position: relative;
+  top: 2vh;
+  height: 4vw;
+  max-height: none;
+  max-width: 22vw;
+  flex-wrap: wrap;
+}
+
+.skillsrequired {
+  background-color: #ffeeee;
+  height: 3vh;
+  width: auto;
+  text-align: center;
+  display: flex;
+  padding: 0vh 1vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    text-transform:uppercase;
+}
+
+.jobbutton {
+  position: relative;
+  top: 3vh;
+  display: flex;
+  gap: 2vw;
+}
+.jobbutton > button:nth-of-type(1) {
+  border: 2px solid #ed5353;
+  color: #ed5353;
+  height: 5vh;
+  width: 8vw;
+  border-radius: 7px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  cursor: pointer;
+  transition: 0.2s;
+  font-weight: 500;
+}
+
+.jobbutton > button:nth-of-type(2) {
+  background-color: #ed5353;
+  border: none;
+  width: 8vw;
+  border-radius: 7px;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+  font-weight: 500;
+}
+.jobbutton > button:nth-of-type(1):active,
+.jobbutton > button:nth-of-type(2):active {
+  scale: 0.9;
+}
