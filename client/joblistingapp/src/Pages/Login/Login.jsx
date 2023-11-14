@@ -3,6 +3,7 @@ import style from "./Login.module.css";
 import backgroundimage from "../../assets/loginbackground.jpg";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 function Login() {
   const [user, setuser] = useState({
     email: "",
@@ -18,10 +19,18 @@ function Login() {
         console.log(res.data);
         if (res.data.token) {
           console.log("logedin successfully");
-          navigate(-1);
+          toast.success('Logedin Successfully',{
+            autoClose:2000,
+            position:"top-center"
+
+          })
+          setTimeout(()=>{
+            navigate(-1)
+          },2000)
         }
         localStorage.setItem("name", res.data.name);
         localStorage.setItem("token", res.data.token);
+        
       })
       .catch((err) => {
         console.error(err);
@@ -74,6 +83,7 @@ function Login() {
           <img src={backgroundimage} alt="leftimg" />
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 }

@@ -54,7 +54,7 @@ function Jobedit() {
       autoClose: 1000,
     });
     setTimeout(() => {
-      navigate("/login");
+      navigate(-1);
     }, 2000);
   };
 

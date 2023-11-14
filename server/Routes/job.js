@@ -109,7 +109,7 @@ router.get("/job/search", async (req, res) => {
   console.log(title, skills);
   const filter = {};
   if (skills) {
-    filter.skills = { $regex: skills, $options: "i" };
+    filter.skills = { $in: skills};
     // filter.skills = { $regex: skills, $options: "i" };
     // filter.skills = { $in: skills };
   }
