@@ -1,3 +1,3 @@
-const BASEURL='https://job-listing-app-backend-9kmrjszwr-fahil-hybrido.vercel.app/'
+const BASEURL='http://localhost:3000'
 
 export default BASEURL

@@ -38,7 +38,6 @@ function Jobdescription() {
           `${BASEURL}/jobpost/${jobid}`
         );
         setjobinfo(responce.data.message);
-        console.log(responce.data.message.skills);
       } catch (error) {
         console.error(error);
       }
@@ -140,8 +139,8 @@ function Jobdescription() {
           <div className={style.skills}>
             <h3>Skill&#40;s&#41; required</h3>
             <div className={style.skillsdiv}>
-              {jobinfo.skills?.map((skill) => {
-                return <p className={style.jobskill}>{skill}</p>;
+              {jobinfo.skills?.map((skill,index) => {
+                return <p key={index} className={style.jobskill}>{skill}</p>;
               })}
             </div>
           </div>
