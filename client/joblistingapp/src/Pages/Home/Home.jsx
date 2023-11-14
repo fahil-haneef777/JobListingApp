@@ -10,6 +10,7 @@ import nopeople from "../../assets/nopeople.png";
 import india from "../../assets/india.png";
 import JobContext from "../../context/jobcontext";
 import Jobdescription from "../JobDescriptionPage/Jobdescription";
+import BASEURL from "../../Constants/baseUrl";
 function Home() {
   const navigate = useNavigate();
   const [loggedin, setloggedin] = useState(localStorage.getItem("token"));
@@ -54,7 +55,7 @@ function Home() {
   const handlesearch = () => {
     axios
       .get(
-        `http://localhost:3000/job/search?title=${searchQuery}&skills=${skill}`
+        `${BASEURL}/job/search?title=${searchQuery}&skills=${skill}`
       )
       .then((res) => {
         console.log(res.data);
@@ -68,7 +69,7 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/Alljob")
+      .get(`${BASEURL}/Alljob`)
       .then((res) => {
         setalljob(res.data);
         setsearchjob(res.data.job);

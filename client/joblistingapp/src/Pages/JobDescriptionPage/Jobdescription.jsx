@@ -6,6 +6,7 @@ import stipend from "../../assets/stipend.png";
 import duration from "../../assets/duration.png";
 import JobContext from "../../context/jobcontext";
 import axios from "axios";
+import BASEURL from "../../Constants/baseUrl";
 function Jobdescription() {
   const navigate = useNavigate();
   const [loggedin, setloggedin] = useState(localStorage.getItem("token"));
@@ -34,7 +35,7 @@ function Jobdescription() {
     const fetchJobinfo = async () => {
       try {
         const responce = await axios.get(
-          `http://localhost:3000/jobpost/${jobid}`
+          `${BASEURL}/jobpost/${jobid}`
         );
         setjobinfo(responce.data.message);
         console.log(responce.data.message.skills);

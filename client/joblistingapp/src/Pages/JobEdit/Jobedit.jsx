@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import JobContext from "../../context/jobcontext";
+import BASEURL from "../../Constants/baseUrl";
 
 function Jobedit() {
   const { jobid } = useContext(JobContext);
@@ -27,7 +28,7 @@ function Jobedit() {
 
   const handleSubmit = () => {
     axios
-      .put(`http://localhost:3000/job-post/${jobid}`, info, {
+      .put(`${BASEURL}/job-post/${jobid}`, info, {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token"),
         },

@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import BASEURL from "../../Constants/baseUrl";
 function JobAdd() {
 
 const navigate=useNavigate()
@@ -25,7 +26,7 @@ const navigate=useNavigate()
 
   const handleSubmit = () => {
     axios
-      .post("http://localhost:3000/job-post", info, {
+      .post(`${BASEURL}/job-post`, info, {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token"),
         },
