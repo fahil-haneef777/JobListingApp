@@ -230,12 +230,13 @@
   display: flex;
   gap: 2vw;
   height: 4vw;
+  width: auto;
 }
 .jobskill {
   padding: 1.5vh;
   padding-bottom: 2vh;
   background-color: #ffeeee;
-  width: 4.5vw;
+  width: auto;
   text-align: center;
   height: 3vh;
   border-radius: 20px;

@@ -39,6 +39,9 @@ function Jobedit() {
           position: "top-right",
           autoClose: 2000, // Auto-close the message after 2 seconds
         });
+        setTimeout(() => {
+          navigate(-1);
+        }, 2000);
       })
       .catch((err) => {
         console.error(err);
@@ -142,6 +145,7 @@ function Jobedit() {
                 <option value="Finance">Finance</option>
                 <option value="Sales">Sales</option>
                 <option value="Customer support">Customer Support</option>
+                <option value="Engineering">Engineering</option>
               </select>
             </div>
 
