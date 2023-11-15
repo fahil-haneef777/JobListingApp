@@ -9,7 +9,15 @@ const cors = require("cors");
 
 const app = express();
 
-app.use(cors());
+const allowedOrigins = ["https://job-listing-app-sigma.vercel.app"];
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+    methods: ["GET", "POST", "PUT"],
+    credentials: true,
+  })
+);
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
 
@@ -40,8 +48,6 @@ app.listen(process.env.PORT, () => {
     })
     .catch((error) => console.log(error));
 });
-
-
 
 // {
 //     origin: ["https://job-listing-jxf4s692x-fahil-hybrido.vercel.app"],
