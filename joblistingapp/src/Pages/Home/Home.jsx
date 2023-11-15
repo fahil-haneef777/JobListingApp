@@ -51,12 +51,11 @@ function Home() {
   };
 
   //handlesearch
+  axios.defaults.withCredentials = true;
 
   const handlesearch = () => {
     axios
-      .get(
-        `${BASEURL}/job/search?title=${searchQuery}&skills=${skill}`
-      )
+      .get(`${BASEURL}/job/search?title=${searchQuery}&skills=${skill}`)
       .then((res) => {
         console.log(res.data);
         setsearchjob(res.data);

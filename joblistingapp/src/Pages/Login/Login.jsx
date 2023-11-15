@@ -11,6 +11,8 @@ function Login() {
   });
   const navigate = useNavigate();
   const [loginitem, setloginitem] = useState({ token: "", name: "" });
+
+  axios.defaults.withCredentials = true;
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
@@ -19,18 +21,16 @@ function Login() {
         console.log(res.data);
         if (res.data.token) {
           console.log("logedin successfully");
-          toast.success('Logedin Successfully',{
-            autoClose:2000,
-            position:"top-center"
-
-          })
-          setTimeout(()=>{
-            navigate(-1)
-          },2000)
+          toast.success("Logedin Successfully", {
+            autoClose: 2000,
+            position: "top-center",
+          });
+          setTimeout(() => {
+            navigate(-1);
+          }, 2000);
         }
         localStorage.setItem("name", res.data.name);
         localStorage.setItem("token", res.data.token);
-        
       })
       .catch((err) => {
         console.error(err);

@@ -30,13 +30,12 @@ function Jobdescription() {
   const handleEdit = () => {
     navigate("/jobedit");
   };
+  axios.defaults.withCredentials = true;
 
   useEffect(() => {
     const fetchJobinfo = async () => {
       try {
-        const responce = await axios.get(
-          `${BASEURL}/jobpost/${jobid}`
-        );
+        const responce = await axios.get(`${BASEURL}/jobpost/${jobid}`);
         setjobinfo(responce.data.message);
       } catch (error) {
         console.error(error);
@@ -139,8 +138,12 @@ function Jobdescription() {
           <div className={style.skills}>
             <h3>Skill&#40;s&#41; required</h3>
             <div className={style.skillsdiv}>
-              {jobinfo.skills?.map((skill,index) => {
-                return <p key={index} className={style.jobskill}>{skill}</p>;
+              {jobinfo.skills?.map((skill, index) => {
+                return (
+                  <p key={index} className={style.jobskill}>
+                    {skill}
+                  </p>
+                );
               })}
             </div>
           </div>

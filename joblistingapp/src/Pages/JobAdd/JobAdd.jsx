@@ -7,8 +7,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import BASEURL from "../../Constants/baseUrl";
 function JobAdd() {
-
-const navigate=useNavigate()
+  const navigate = useNavigate();
 
   const [info, setinfo] = useState({
     companyName: "",
@@ -23,6 +22,7 @@ const navigate=useNavigate()
     skills: "",
     information: "",
   });
+  axios.defaults.withCredentials = true;
 
   const handleSubmit = () => {
     axios
@@ -38,23 +38,21 @@ const navigate=useNavigate()
           position: "top-right",
           autoClose: 2000, // Auto-close the message after 2 seconds
         });
-
       })
       .catch((err) => {
         console.error(err);
-        
       });
   };
-  
-const handleCancel=()=>{
-    toast.error('Job Post Canceled!',{
-        position:'top-center',
-        autoClose:1000,
-    })
-    setTimeout(()=>{
-        navigate("/")
-    },2000)
-}
+
+  const handleCancel = () => {
+    toast.error("Job Post Canceled!", {
+      position: "top-center",
+      autoClose: 1000,
+    });
+    setTimeout(() => {
+      navigate("/");
+    }, 2000);
+  };
 
   return (
     <>
@@ -227,7 +225,12 @@ const handleCancel=()=>{
                 placeholder="Enter the must have skill"
                 value={info.skills}
                 onInput={(e) => {
-                  setinfo({ ...info, skills: e.target.value.split(",").map((skill)=>skill.trim()) });
+                  setinfo({
+                    ...info,
+                    skills: e.target.value
+                      .split(",")
+                      .map((skill) => skill.trim()),
+                  });
                 }}
               />
             </div>

@@ -26,6 +26,8 @@ function Jobedit() {
     information: "",
   });
 
+  axios.defaults.withCredentials = true;
+
   const handleSubmit = () => {
     axios
       .put(`${BASEURL}/job-post/${jobid}`, info, {
