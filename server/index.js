@@ -8,8 +8,6 @@ const User = require("./models/user");
 const cors = require("cors");
 
 const app = express();
-
-const allowedOrigins = ["https://job-listing-app-sigma.vercel.app"];
 app.use(
   cors({
     origin: "*",
