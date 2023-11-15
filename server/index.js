@@ -10,7 +10,7 @@ const cors = require("cors");
 const app = express();
 
 
-const allowedOrigins = ["http://localhost:5173"];
+const allowedOrigins = ["https://job-listing-app-sigma.vercel.app"];
 app.use(
   cors({
     origin: allowedOrigins,
