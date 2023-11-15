@@ -4,6 +4,7 @@ import backgroundimage from "../../assets/loginbackground.jpg";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import BASEURL from "../../Constants/baseUrl";
 function Login() {
   const [user, setuser] = useState({
     email: "",
@@ -12,25 +13,27 @@ function Login() {
   const navigate = useNavigate();
   const [loginitem, setloginitem] = useState({ token: "", name: "" });
 
-  axios.defaults.withCredentials = true;
+   axios.defaults.withCredentials = true;
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3000/login", user)
+      .post(`${BASEURL}/login`, user )
       .then((res) => {
         console.log(res.data);
         if (res.data.token) {
           console.log("logedin successfully");
-          toast.success("Logedin Successfully", {
-            autoClose: 2000,
-            position: "top-center",
-          });
-          setTimeout(() => {
-            navigate(-1);
-          }, 2000);
+          toast.success('Logedin Successfully',{
+            autoClose:2000,
+            position:"top-center"
+
+          })
+          setTimeout(()=>{
+            navigate(-1)
+          },2000)
         }
         localStorage.setItem("name", res.data.name);
         localStorage.setItem("token", res.data.token);
+        
       })
       .catch((err) => {
         console.error(err);

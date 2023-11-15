@@ -55,7 +55,9 @@ function Home() {
 
   const handlesearch = () => {
     axios
-      .get(`${BASEURL}/job/search?title=${searchQuery}&skills=${skill}`)
+      .get(`${BASEURL}/job/search?title=${searchQuery}&skills=${skill}`, {
+        withCredentials: true,
+      })
       .then((res) => {
         console.log(res.data);
         setsearchjob(res.data);
@@ -68,11 +70,9 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get(
-        'https://joblisting-backend-yzeo.onrender.com/Alljob', {
-          withCredentials: true,
-        }
-      )
+      .get(`${BASEURL}/Alljob`, {
+        withCredentials: true,
+      })
       .then((res) => {
         setalljob(res.data);
         setsearchjob(res.data.job);
