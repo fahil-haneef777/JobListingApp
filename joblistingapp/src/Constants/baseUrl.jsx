@@ -1,3 +1,3 @@
-const BASEURL='https://job-listing-app-backend.vercel.app'
-
+const BASEURL='https://joblisting-backend-yzeo.onrender.com/'
+app
 export default BASEURL
