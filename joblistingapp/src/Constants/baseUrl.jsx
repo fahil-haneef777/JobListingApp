@@ -1,3 +1,3 @@
-const BASEURL='http://localhost:3000'
+const BASEURL='https://job-listing-app-backend.vercel.app'
 
 export default BASEURL
