@@ -12,7 +12,7 @@ const app = express();
 const allowedOrigins = ["https://job-listing-app-sigma.vercel.app"];
 app.use(
   cors({
-    origin: allowedOrigins,
+    origin: "*",
     methods: ["GET", "POST", "PUT"],
     credentials: true,
   })
@@ -33,8 +33,8 @@ app.get("/health", (req, res) => {
   });
 });
 
-app.use(authRoutes);
-app.use(jobRoutes);
+app.use('/',authRoutes);
+app.use('/',jobRoutes);
 
 app.listen(process.env.PORT, () => {
   mongoose
