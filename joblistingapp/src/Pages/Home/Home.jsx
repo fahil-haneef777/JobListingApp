@@ -68,7 +68,11 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get(`${BASEURL}/Alljob`)
+      .get(
+        'https://joblisting-backend-yzeo.onrender.com/Alljob', {
+          withCredentials: true,
+        }
+      )
       .then((res) => {
         setalljob(res.data);
         setsearchjob(res.data.job);
