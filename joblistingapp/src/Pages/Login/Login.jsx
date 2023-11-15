@@ -17,7 +17,9 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(`${BASEURL}/login`, user )
+      .post(`${BASEURL}/login`, user ,{
+        withCredentials: true,
+      })
       .then((res) => {
         console.log(res.data);
         if (res.data.token) {
