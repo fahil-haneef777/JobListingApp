@@ -2,7 +2,7 @@ import { useState } from "react";
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
 import JobAdd from "./Pages/JobAdd/JobAdd";
-import { Provider } from "./context/jobcontext";
+import { Provider } from "./context/JobContext.jsx";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
