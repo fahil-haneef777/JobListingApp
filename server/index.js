@@ -9,13 +9,7 @@ const cors = require("cors");
 
 const app = express();
 
-app.use(
-  cors({
-    origin: ["https://job-listing-jxf4s692x-fahil-hybrido.vercel.app"],
-    methods: ["POST", "GET", "PUT"],
-    credentials: true,
-  })
-);
+app.use(cors());
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
 
@@ -46,3 +40,11 @@ app.listen(process.env.PORT, () => {
     })
     .catch((error) => console.log(error));
 });
+
+
+
+// {
+//     origin: ["https://job-listing-jxf4s692x-fahil-hybrido.vercel.app"],
+//     methods: ["POST", "GET", "PUT"],
+//     credentials: true,
+//   }
