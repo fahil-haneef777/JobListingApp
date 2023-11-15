@@ -9,7 +9,7 @@ const cors = require("cors");
 
 const app = express();
 
-const allowedOrigins = ["https://job-listing-d9fl6lx26-fahil-hybrido.vercel.app/"];
+const allowedOrigins = ["https://job-listing-app-sigma.vercel.app"];
 app.use(
   cors({
     origin: allowedOrigins,
