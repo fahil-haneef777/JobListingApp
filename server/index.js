@@ -8,13 +8,9 @@ const User = require("./models/user");
 const cors = require("cors");
 
 const app = express();
-app.use(
-  cors({
-    origin: "*",
-    methods: ["GET", "POST", "PUT"],
-    credentials: true,
-  })
-);
+
+
+app.use(cors());
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
 
@@ -31,8 +27,8 @@ app.get("/health", (req, res) => {
   });
 });
 
-app.use('/',authRoutes);
-app.use('/',jobRoutes);
+app.use(authRoutes);
+app.use(jobRoutes);
 
 app.listen(process.env.PORT, () => {
   mongoose
