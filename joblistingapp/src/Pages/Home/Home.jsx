@@ -8,7 +8,7 @@ import Search from "../../assets/search.png";
 import close from "../../assets/close.png";
 import nopeople from "../../assets/nopeople.png";
 import india from "../../assets/india.png";
-import JobContext from "../../context/jobcontext";
+import JobContext from "../../context/JobContext";
 import Jobdescription from "../JobDescriptionPage/Jobdescription";
 import BASEURL from "../../Constants/baseUrl";
 function Home() {

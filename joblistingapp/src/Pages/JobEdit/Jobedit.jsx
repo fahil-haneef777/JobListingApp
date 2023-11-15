@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import JobContext from "../../context/jobcontext";
+import JobContext from "../../context/JobContext";
 import BASEURL from "../../Constants/baseUrl";
 
 function Jobedit() {

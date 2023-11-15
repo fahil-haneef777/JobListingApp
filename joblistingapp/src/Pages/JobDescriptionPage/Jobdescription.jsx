@@ -4,7 +4,7 @@ import topnav from "../../assets/topnav.jpg";
 import { useNavigate } from "react-router-dom";
 import stipend from "../../assets/stipend.png";
 import duration from "../../assets/duration.png";
-import JobContext from "../../context/jobcontext";
+import JobContext from "../../context/JobContext";
 import axios from "axios";
 import BASEURL from "../../Constants/baseUrl";
 function Jobdescription() {
